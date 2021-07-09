@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume - Oleksiy Bilyk - Java Developer</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+    <div class="header">
+        <div id="header-wrap"  class="header-wrap">
+            <div class="header-top">
+                <div class="in-header-top">
+                    <span>Oleksii <strong>Bilyk</strong></span>
+                    <div style="float: right; color: #dad9d9; margin-right: 75px">Java Developer</div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="in-header-bottom">
+                    <span><strong>Phone</strong> +380679384857</span><br>
+                    <span><strong>E-mail</strong> alexwhitecorp@gmail.com</span><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content" class="content">
+        <div class="info-block row">
+        <div class="side-left">
+            <img src="images/icons/tech-stack.png" alt="" class="info-block-img">
+        </div>
+        <div class="side-right">
+            <div class="info-block-title">Skills</div>
+            <div class="info-block-content">
+                <div>• Spring(Security, MVC, Data JPA, REST)</div>
+                <div>• Hibernate, SQL(PostgreSQL)</div>
+                <div>• MongoDB</div>
+                <div>• JUnit</div>
+                <div>• Java NIO, Netty</div>
+                <div>• JavaScript(Vue.js)</div>
+                <div>• Cloud web services(AWS)</div>
+                <div>• Git, Maven, Jenkins, Tomcat</div>
+                <div>• Linux</div>
+                <div>• English(Intermediate)</div>
+            </div>
+        </div>
+    </div>
+        <div class="info-block row">
+            <div class="side-left">
+                <img src="images/icons/portfolio.png" alt="" class="info-block-img">
+            </div>
+            <div class="side-right">
+                <div class="info-block-title">Experience</div>
+                <div class="info-block-content">
+                    <div>• <strong style="font-size: 18px"><a href="http://midat.io" target="_blank">midat.io</a></strong> - Education quality control system for an Israeli Nonprofit Organization</div>
+                    <div>&nbsp;<strong> Tech Stack: </strong> Spring Framework + Vue.js + PostgreSQL</div>
+                    <div>&nbsp<strong> - </strong>Developed conducting a survey among students and teachers and collecting statistics</div>
+                    <div>&nbsp<strong> - </strong>Developed conducting presentations with voting on the basis of collected statistics in real time using WebSockets</div>
+                    
+                    <div>• <strong style="font-size: 18px">SAIP</strong> - Saudi Arabia's patent system in the field of computer science and architecture</div>
+                    <div>&nbsp;<strong> Tech Stack: </strong> Spring Framework + PostgreSQL</div>
+                    <div>&nbsp<strong> - </strong>Development of new services using the Spring framework</div>
+                    <div>&nbsp<strong> - </strong>Maintenance of existing services</div>                
+                    
+                    <div>• <strong style="font-size: 18px">Senatus</strong> - a platform for organizing and conducting meetings of the Academic Council of the faculty(Term Paper)</div>
+                    <div>&nbsp<strong> - </strong>Automation of organizational issues</div>
+                    <div>&nbsp<strong> - </strong>Development of service for meetings with the need to hold secret ballots</div>
+                    <div>&nbsp<strong> - </strong>Automation of work with documents</div>
+                    <div>&nbsp;<strong> Tech Stack: </strong> Spring Framework + Vue.js + PostgreSQL</div>
+                </div>
+            </div>
+        </div>
+        <div class="info-block row">
+            <div class="side-left">
+                <img src="images/icons/education.png" alt="" class="info-block-img">
+            </div>
+            <div class="side-right">
+                <div class="info-block-title">Education</div>
+                <div class="info-block-content">
+                    <div>
+                        • <strong>Taras Shevchenko National University of Kyiv</strong>
+                        <div> &nbsp Currently pursuing bachelor degree in Computer Sciences</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</body>
+<script type="text/javascript">
+    let windowWidth = window.innerWidth;
+    let headerWrap = document.getElementById("header-wrap");
+    let content = document.getElementById("content");
+    if(windowWidth > 1024){
+        setToCenter(headerWrap);
+        setToCenter(content);
+    }
+    else{
+
+    }
+
+    function setToCenter(ellement) {
+        ellement.style.minWidth = '1024px';
+        ellement.style.maxWidth = '1024px';
+        ellement.style.marginLeft = (windowWidth - 1024) / 2 + 'px';
+        ellement.style.marginRight = (windowWidth - 1024) / 2 + 'px';
+    }
+
+    //https://tools.pdf24.org/ru/webpage-to-pdf
+</script>
+</html>
