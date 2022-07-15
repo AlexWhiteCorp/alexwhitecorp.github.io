@@ -1,0 +1,20 @@
+.nav-wrapper {
+    grid-area: nav;
+    position: fixed;
+    padding-top: 50px;
+}
+
+.nav-item {
+    margin: 5px 0 5px 10px;
+}
+
+.nav-sub-item {
+    margin: 5px 0 5px 20px;
+}
+
+.nav-item-link {
+    color: var(--font-main);
+    font-size: 16px;
+    line-height: 16px;
+    text-decoration: none;
+}
