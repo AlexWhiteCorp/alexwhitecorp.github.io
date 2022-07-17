@@ -97,6 +97,149 @@
             <div class="block">
                 <div class="block-title">Install using Custom Build</div>
             </div>
+
+            <a name="access-token"></a>
+            <div class="block">
+                <div class="block-title">How to generate GitHub Access Token</div>
+                <div class="in-block">
+                    Use this step-by-step
+                    <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank">GitHub Official Instruction</a>
+                    to generate access token. <br>
+                </div>
+                <div class="in-block flex-block">
+                    <div>Token should has next access scopes for correct work:</div>
+                    <b class="in-block">- repo (all)</b>
+                    <img class="default-img" style="max-width: 250px"
+                         src="images/generate-token-1.png" alt="NotFound">
+                    <b class="in-block">- admin:org (only read:org)</b>
+                    <img class="default-img" style="max-width: 250px"
+                         src="images/generate-token-2.png" alt="NotFound">
+                </div>
+                <div class="in-block flex-block">
+                    <div>Don't forget to <b>Authorize SSO</b>  (Single Sign-On) if it's enabled by your organization (it's important!).</div>
+                    <img class="default-img" style="max-width: 400px"
+                         src="images/generate-token-3.png" alt="NotFound">
+                </div>
+            </div>
+
+            <a name="usage"></a>
+            <div id="usage-statistic" class="block">
+                <div class="block-title">Usage Statistic</div>
+                <canvas id="chart-canvas"></canvas>
+                <script>
+                    if(document.location.hash !== '#usage') {
+                        document.getElementById('usage-statistic').style.display = 'none'
+                    }
+
+                    const GIT_HUB_PATH = 'https://api.github.com'
+
+                    function loadChart(data) {
+                        const config = {
+                            type: 'bar',
+                            data: data,
+                            options: {
+                                plugins: {
+                                    legend: {
+                                        labels: {
+                                            color: '#adbac7'
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    x: {
+                                        ticks: {color: '#adbac7'}
+                                    },
+                                    y: {
+                                        ticks: {color: '#adbac7', precision: 0}
+                                    }
+                                }
+                            }
+                        };
+
+                        const chart = new Chart(
+                            document.getElementById('chart-canvas'),
+                            config
+                        );
+                    }
+
+                    function serveChartData(labels, datasets) {
+                        const common = {
+                            maxBarThickness: 35,
+                            categoryPercentage: 0.2,
+                            barPercentage: 1.0
+                        }
+
+                        return {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: 'Mac ARM',
+                                    backgroundColor: '#ffb55a',
+                                    borderColor: '#ffb55a',
+                                    data: datasets[0],
+                                    ...common
+                                },
+                                {
+                                    label: 'Mac x64',
+                                    backgroundColor: '#00bfa0',
+                                    borderColor: '#00bfa0',
+                                    data: datasets[1],
+                                    ...common
+                                },
+                                {
+                                    label: 'Windows x64',
+                                    backgroundColor: '#0d88e6',
+                                    borderColor: '#0d88e6',
+                                    data: datasets[2],
+                                    ...common
+                                }
+                            ]
+                        };
+                    }
+
+                    axios.get(GIT_HUB_PATH + '/repos/AlexWhiteCorp/watchdog/releases')
+                        .then(response => {
+                            const labels = []
+                            const datasets = [[], [], []]
+
+                            response.data.forEach(release => {
+                                const macArmAsset = release.assets.find(asset => asset.name.indexOf('arm64.dmg') !== -1)
+                                const mac64Asset = release.assets.find(asset => asset.name.indexOf('.dmg') !== -1 && asset.name.indexOf('arm64.dmg') === -1)
+                                const win64Asset = release.assets.find(asset => asset.name.indexOf('.exe') !== -1)
+
+                                labels.push(release.tag_name)
+                                datasets[0].push(macArmAsset.download_count)
+                                datasets[1].push(mac64Asset.download_count)
+                                datasets[2].push(win64Asset.download_count)
+                            })
+
+                            const data = serveChartData(labels, datasets)
+
+                            loadChart(data)
+                        })
+                </script>
+            </div>
+
+            <script>
+                axios.get('versions.json')
+                    .then(response => {
+                        const versions = response.data
+                        let elements = document.getElementsByClassName('download-mac-arm')
+                        for (const el of elements) {
+                            el.href = versions['mac-arm'].download_url
+                        }
+
+                        elements = document.getElementsByClassName('download-mac64')
+                        for (const el of elements) {
+                            el.href = versions['mac64'].download_url
+                        }
+
+                        elements = document.getElementsByClassName('download-win64')
+                        for (const el of elements) {
+                            el.href = versions['win64'].download_url
+                        }
+                    })
+            </script>
         </div>
     </div>
 </div>
