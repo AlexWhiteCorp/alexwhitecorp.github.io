@@ -2,8 +2,8 @@
     --background: #22272e;
     --panel: #2d333b;
     --font-main: #adbac7;
-    --font-active: #539bf5;;
-    --font-2: #768390;;
+    --font-active: #539bf5;
+    --font-2: #768390;
 }
 
 html, body {
@@ -19,6 +19,10 @@ a {
     color: var(--font-active);
 }
 
+b {
+    color: var(--font-main);
+}
+
 .main-wrapper {
     display: grid;
     grid-auto-columns: auto 1024px auto;
@@ -28,7 +32,7 @@ a {
 .in-main {
     grid-area: in-main;
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 220px auto;
     grid-template-areas: "nav content";
 }
 
@@ -41,9 +45,23 @@ a {
     padding-top: 50px;
 }
 
+.in-block {
+    margin: 15px 10px;
+}
+
+.flex-block {
+    display: flex;
+    flex-direction: column;
+}
+
 .block-title {
-    margin: 10px 0;
+    margin: 10px 10px;
 
     font-size: 22px;
     font-weight: bold;
+}
+
+.default-img {
+    max-height: 400px;
+    margin: 25px auto;
 }

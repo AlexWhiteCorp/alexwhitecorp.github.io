@@ -38,6 +38,54 @@
             <a name="install-macos"></a>
             <div class="block">
                 <div class="block-title">Install on MacOS</div>
+                <div class="in-block flex-block">
+                    <div>After you have downloaded and launched installer for your arch
+                        (<a class="download-mac-arm" href="">MacOS ARM</a> or <a class="download-mac64" href="">MacOS x64</a>)
+                        move <b>WatchDog</b> app to <b>Applications</b> folder.
+                    </div>
+                    <img class="default-img" style="max-width: 400px"
+                         src="images/install-macos-1.png" alt="NotFound">
+                </div>
+                <div class="in-block flex-block">
+                    <div>If you try to tun WatchDog app you will receive error message that image is damaged.
+                        It actually means that author haven't bought Apple Developer Id yet and haven't sign this app.
+                        So application is moved to quarantine.
+                    </div>
+                    <img class="default-img" style="max-width: 300px"
+                         src="images/install-macos-2.png" alt="NotFound">
+                </div>
+                <div class="in-block flex-block">
+                    <div>To solve this problem you just need to run next command in terminal:</div>
+                    <i style="margin: 15px 0; color: var(--font-2)">
+                        xattr -d com.apple.quarantine /Applications/WatchDog.app
+                    </i>
+                </div>
+                <div class="in-block flex-block">
+                    <div>
+                        If you try to run app now <s>it will successful opens</s>
+                        you will see new security alert <i>"... app is from an unidentified developer..</i>." :)
+                    </div>
+                </div>
+                <div class="in-block flex-block">
+                    <div>To solve this problem:</div>
+                    <div class="in-block">1. Open System Preferences</div>
+                    <div class="in-block">2. Go to Security & Privacy and select the General tab</div>
+                    <div class="in-block">3. If you’ve been blocked from opening an app within the past hour,
+                        this page will give you the option to override this by clicking the
+                        temporary button ‘Open Anyway’..</div>
+                    <div class="in-block">4. You’ll be asked one more time if you’re sure, but clicking <b>Open</b> will run the app</div>
+                    <img class="default-img" style="max-width: 500px"
+                         src="images/install-macos-3.png" alt="NotFound">
+                </div>
+                <div class="in-block flex-block">
+                    Happy end!
+                </div>
+                <div class="in-block flex-block">
+                    <div>
+                        Or you can try to go to <a href="#install-custom-build">Custom build</a> guide(<b>npm</b> and <b>Node.js</b> are required).
+                        If you generate app build on your machine you will avoid any security error message.
+                    </div>
+                </div>
             </div>
 
             <a name="install-windows"></a>
