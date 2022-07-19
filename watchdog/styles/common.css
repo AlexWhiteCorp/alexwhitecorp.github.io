@@ -73,6 +73,13 @@ b {
     color: var(--font-2)
 }
 
+textarea {
+    background: transparent;
+    height: 500px;
+    border: none;
+    resize: none;
+}
+
 @media screen and (max-width: 1024px) {
     .main-wrapper {
         grid-auto-columns: auto;

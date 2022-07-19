@@ -25,6 +25,7 @@
         <div class="nav-wrapper">
             <div class="nav-item"><a href="#about" class="nav-item-link">- About</a></div>
             <div class="nav-item"><a href="#install" class="nav-item-link">- Install</a></div>
+            <div class="nav-sub-item"><a href="#install-config" class="nav-item-link">- Configuration</a></div>
             <div class="nav-sub-item"><a href="#install-macos" class="nav-item-link">- MacOS</a></div>
             <div class="nav-sub-item"><a href="#install-windows" class="nav-item-link">- Windows 10</a></div>
             <div class="nav-sub-item"><a href="#install-custom-build" class="nav-item-link">- Custom build</a></div>
@@ -39,6 +40,59 @@
             <a name="install"></a>
             <div class="block">
                 <div class="block-title">Install</div>
+            </div>
+
+            <a name="install-config"></a>
+            <div class="block">
+                <div class="block-title">Configuration</div>
+                <div class="in-block">
+                    Before installation you have to prepare config file.
+                    In this file you will fill in information about repositories you are interested in
+                    and provide tokens for access to them.
+                </div>
+                <div class="in-block flex-block">
+                    <div>In your home directory create <b>.watchdog</b> dir with <b>config.json</b> file inside it.</div>
+                    <div>So final path will looks like: </div>
+                    <i class="code-block">
+                        ~/.watchdog/config.json
+                    </i>
+                </div>
+                <div class="in-block flex-block">
+                    <div>Fill in created config file using next schema(example): </div>
+                    <textarea class="code-block" readonly="true">
+{
+  "organizations": [
+    ...
+    {
+      "access_token": "<access_token>",
+      "organization": "AlexWhiteCorp",
+      "groups": [
+        {
+          "repositories": [
+            "alexwhitecorp.github.io",
+            "watchdog"
+          ]
+        },
+        {
+          "repositories": [
+            "my-repo-1",
+            "my-repo-2",
+            "my-repo-2"
+          ],
+          "fetchPRs": false, //Optional, by default is true.
+                             //If false - repositories will be loaded but
+                             //refreshing will be skipped for them
+        },
+        ...
+      ]
+    }
+    ...
+  ]
+}</textarea>
+                </div>
+                <div class="in-block">
+                    More info about <a href="#access-token">Access Token generation.</a>
+                </div>
             </div>
 
             <a name="install-macos"></a>
