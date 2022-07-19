@@ -446,7 +446,9 @@
                             const labels = []
                             const datasets = [[], [], []]
 
-                            response.data.forEach(release => {
+                            response.data
+                                .reverse(el => el.tag_name)
+                                .forEach(release => {
                                 const macArmAsset = release.assets.find(asset => asset.name.indexOf('arm64.dmg') !== -1)
                                 const mac64Asset = release.assets.find(asset => asset.name.indexOf('.dmg') !== -1 && asset.name.indexOf('arm64.dmg') === -1)
                                 const win64Asset = release.assets.find(asset => asset.name.indexOf('.exe') !== -1)
