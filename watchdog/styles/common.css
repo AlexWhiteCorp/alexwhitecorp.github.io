@@ -41,8 +41,9 @@ b {
 }
 
 .block {
-    min-height: 800px;
     padding-top: 50px;
+
+    line-height: 24px;
 }
 
 .in-block {
@@ -64,4 +65,34 @@ b {
 .default-img {
     max-height: 400px;
     margin: 25px auto;
+}
+
+.code-block {
+    margin: 15px 0;
+
+    color: var(--font-2)
+}
+
+@media screen and (max-width: 1024px) {
+    .main-wrapper {
+        grid-auto-columns: auto;
+        grid-template-areas: "in-main";
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .in-main {
+        grid-area: in-main;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-areas: "content";
+    }
+
+    .nav-wrapper {
+        display: none;
+    }
+
+    .default-img {
+        width: 80%;
+    }
 }
