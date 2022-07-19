@@ -45,7 +45,8 @@
                 <div class="block-title">Install on MacOS</div>
                 <div class="in-block flex-block">
                     <div>After you have downloaded and launched installer for your arch
-                        (<a class="download-mac-arm" href="">MacOS ARM</a> or <a class="download-mac64" href="">MacOS x64</a>)
+                        (<a class="download-mac-arm" href="">MacOS ARM</a> or <a class="download-mac64" href="">MacOS
+                            x64</a>)
                         move <b>WatchDog</b> app to <b>Applications</b> folder.
                     </div>
                     <img class="default-img" style="max-width: 400px"
@@ -61,7 +62,7 @@
                 </div>
                 <div class="in-block flex-block">
                     <div>To solve this problem you just need to run next command in terminal:</div>
-                    <i style="margin: 15px 0; color: var(--font-2)">
+                    <i class="code-block">
                         xattr -d com.apple.quarantine /Applications/WatchDog.app
                     </i>
                 </div>
@@ -77,8 +78,11 @@
                     <div class="in-block">2. Go to Security & Privacy and select the General tab</div>
                     <div class="in-block">3. If you’ve been blocked from opening an app within the past hour,
                         this page will give you the option to override this by clicking the
-                        temporary button ‘Open Anyway’..</div>
-                    <div class="in-block">4. You’ll be asked one more time if you’re sure, but clicking <b>Open</b> will run the app</div>
+                        temporary button ‘Open Anyway’..
+                    </div>
+                    <div class="in-block">4. You’ll be asked one more time if you’re sure, but clicking <b>Open</b> will
+                        run the app
+                    </div>
                     <img class="default-img" style="max-width: 500px"
                          src="images/install-macos-3.png" alt="NotFound">
                 </div>
@@ -87,7 +91,8 @@
                 </div>
                 <div class="in-block flex-block">
                     <div>
-                        Or you can try to go to <a href="#install-custom-build">Custom build</a> guide(<b>npm</b> and <b>Node.js</b> are required).
+                        Or you can try to go to <a href="#install-custom-build">Custom build</a> guide(<b>npm</b> and
+                        <b>Node.js</b> are required).
                         If you generate app build on your machine you will avoid any security error message.
                     </div>
                 </div>
@@ -97,7 +102,7 @@
             <div class="block">
                 <div class="block-title">Install on Windows 10</div>
                 <div class="in-block flex-block">
-                    <div>After you have downloaded and launched installer for your arch
+                    <div>After you have downloaded and launched installer
                         (<a class="download-win64" href="">Windows x64</a>)
                         you will receive warning message:
                     </div>
@@ -105,7 +110,7 @@
                          src="images/install-windows-1.png" alt="NotFound">
                 </div>
                 <div class="in-block">
-                    It actually means that author haven't certificate yet and haven't sign this app.
+                    It actually means that author haven't bought certificate yet and haven't sign this app.
                 </div>
                 <div class="in-block flex-block">
                     <div>Click <b>More info</b> and your will see <b>Run anyway</b> button.</div>
@@ -120,6 +125,36 @@
             <a name="install-custom-build"></a>
             <div class="block">
                 <div class="block-title">Install using Custom Build</div>
+                <div class="in-block">
+                    You can try to generate custom build using project source code.
+                    In this way you will avoid any security warning related to the lack of signature.
+                    For this you need <b>npm</b> and <b>Node.js</b> installed.
+                </div>
+                <div class="in-block flex-block">
+                    <div>Clone source code from project official repository:</div>
+                    <i class="code-block">
+                        git clone https://github.com/AlexWhiteCorp/watchdog.git
+                    </i>
+                </div>
+                <div class="in-block flex-block">
+                    <div>Move inside cloned directory and install needed dependencies</div>
+                    <i class="code-block">
+                        npm install
+                    </i>
+                </div>
+                <div class="in-block flex-block">
+                    <div>And finally generate you personal build:</div>
+                    <i class="code-block">
+                        npm run electron:build
+                    </i>
+                </div>
+                <div class="in-block">
+                    Electron-builder will automatically detect your OS and arch type and create install launcher.
+                    You can find it in <b><i>dist_electron</i></b> folder. Final name depends on you OS, arch and app version:
+                </div>
+                <div class="in-block"><b>MacOS ARM: </b><i>dist_electron/WatchDog-{version}-arm64.dmg</i></div>
+                <div class="in-block"><b>MacOS x64: </b><i>dist_electron/WatchDog-{version}.dmg</i></div>
+                <div class="in-block"><b>Windows x64: </b><i>dist_electron/WatchDog Setup {version}.exe</i></div>
             </div>
 
             <a name="access-token"></a>
@@ -127,7 +162,8 @@
                 <div class="block-title">How to generate GitHub Access Token</div>
                 <div class="in-block">
                     Use this step-by-step
-                    <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank">GitHub Official Instruction</a>
+                    <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
+                       target="_blank">GitHub Official Instruction</a>
                     to generate access token. <br>
                 </div>
                 <div class="in-block flex-block">
@@ -140,7 +176,9 @@
                          src="images/generate-token-2.png" alt="NotFound">
                 </div>
                 <div class="in-block flex-block">
-                    <div>Don't forget to <b>Authorize SSO</b>  (Single Sign-On) if it's enabled by your organization (it's important!).</div>
+                    <div>Don't forget to <b>Authorize SSO</b> (Single Sign-On) if it's enabled by your organization
+                        (it's important!).
+                    </div>
                     <img class="default-img" style="max-width: 400px"
                          src="images/generate-token-3.png" alt="NotFound">
                 </div>
@@ -151,7 +189,7 @@
                 <div class="block-title">Usage Statistic</div>
                 <canvas id="chart-canvas"></canvas>
                 <script>
-                    if(document.location.hash !== '#usage') {
+                    if (document.location.hash !== '#usage') {
                         document.getElementById('usage-statistic').style.display = 'none'
                     }
 
