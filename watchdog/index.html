@@ -24,6 +24,8 @@
     <div class="in-main">
         <div class="nav-wrapper">
             <div class="nav-item"><a href="#about" class="nav-item-link">- About</a></div>
+            <div class="nav-sub-item"><a href="#functionality" class="nav-item-link">- Functionality</a></div>
+            <div class="nav-item"><a href="#download" class="nav-item-link">- Download</a></div>
             <div class="nav-item"><a href="#install" class="nav-item-link">- Install</a></div>
             <div class="nav-sub-item"><a href="#install-config" class="nav-item-link">- Configuration</a></div>
             <div class="nav-sub-item"><a href="#install-macos" class="nav-item-link">- MacOS</a></div>
@@ -61,6 +63,96 @@
                         </div>
                         <div>- you would like to open favorite(or needed for work) repositories in two clicks</div>
                     </div>
+                </div>
+            </div>
+
+            <a name="functionality"></a>
+            <div class="block">
+                <div class="block-title">Functionality</div>
+                <div class="in-block">
+                    After you launch app you see app icon in <b>tray.</b>
+                </div>
+                <div class="in-block flex-block">
+                    <div>On icon click will be opened pop up window with main menu.</div>
+                    <img class="default-img" style="max-width: 400px"
+                         src="images/functionality-1.png" alt="NotFound">
+                </div>
+                <div class="in-block">
+                    Main menu contains <b>navigation panel</b> between organizations(you will provide in <a href="#install-config">config file</a>)
+                    and list of repositories(also configurable) in this organization you are interested in.
+                </div>
+                <div class="in-block-title">Repositories</div>
+                <div class="in-block flex-block">
+                    <div>By clicking on repository name your open it's GitHub page in Browser.</div>
+                </div>
+                <div class="in-block flex-block">
+                    <div>In case if there are opened Pull Requests in repository you see their number in this format:</div>
+                    <i class="code-block">(approved PRs/total opened PRs in repository) repository-name</i>
+                    <img class="default-img" style="max-width: 400px"
+                         src="images/functionality-2.png" alt="NotFound">
+                    <div><b>Notice:</b> PR is approved = at least one approval review</div>
+                </div>
+                <div class="in-block-title">Pull Requests</div>
+                <div class="in-block flex-block">
+                    <div>On mouse hover on repository name you see all opened PRs in this repository.</div>
+                    <img class="default-img" style="max-width: 400px"
+                         src="images/functionality-3.png" alt="NotFound">
+                    <div>For each PR provides next info:</div>
+                    <div class="in-block">
+                        <div>- PR title and author</div>
+                        <div>- number of approval requests</div>
+                        <div>- PR author's comments/PR reviewers comments</div>
+                        <div>- Time of last update</div>
+                    </div>
+                </div>
+                <div class="in-block flex-block">
+                    <div>By clicking on pull request card your open it's GitHub page in Browser.</div>
+                </div>
+                <div class="in-block">
+                    If you have approved PR you will see '✓' near PR title
+                    or '👁' if you leave at least one comment and haven't received answer yet(code review without approve)
+                </div>
+                <div class="in-block">
+                    <div><b>Notice:</b> you don't see next PRs in this list:</div>
+                    <div class="in-block">
+                        <div>- drafts</div>
+                        <div>- Bump Bot PRs</div>
+                        <div>- you are not author or reviewer of pull request</div>
+                    </div>
+                </div>
+                <div class="in-block-title">Refreshing and Icon color</div>
+                <div class="in-block">Data is re-fetched <b>every 5 minutes</b> using GitHub API to keep information up to date.</div>
+                <div class="in-block">
+                    By default icon color is <b>black</b>.
+                    But if there is at least one PR not approved(at least one approval review)
+                    and you haven't reviewed it(or reviewed but already received answers from PR's author)
+                    icon color will be changed to <b>blue</b>.
+                    <div>So if you take a look on icon and it's blue - it means at least one PR needs your attention.</div>
+                </div>
+                <div class="in-block">
+                    After all PRs become approved(or closed) icon color will be settled back to black.
+                </div>
+                <div class="in-block">
+                    You can temporally pause/resume refreshing using button in the top right corner.
+                    For example: on weekends to don't quit app at all.
+                </div>
+
+                <div class="in-block-title">New versions</div>
+                <div class="in-block flex-block">
+                   <div> On new version will be available you will receive notification
+                       and special icon appear in the top left corner of main menu - click on it to open download page in browser</div>
+                    <img class="default-img" style="max-width: 400px"
+                         src="images/functionality-4.png" alt="NotFound">
+                </div>
+            </div>
+
+            <a name="download"></a>
+            <div class="block">
+                <div class="block-title">Download</div>
+                <div class="in-block">
+                    <div> - <a class="download-mac-arm" href="">MacOS ARM</a></div>
+                    <div> - <a class="download-mac64" href="">MacOS x64</a></div>
+                    <div> - <a class="download-win64" href="">Windows x64</a></div>
                 </div>
             </div>
 

@@ -46,20 +46,27 @@ b {
     line-height: 24px;
 }
 
-.in-block {
-    margin: 15px 10px;
-}
-
-.flex-block {
-    display: flex;
-    flex-direction: column;
-}
-
 .block-title {
     margin: 10px 10px;
 
     font-size: 22px;
     font-weight: bold;
+}
+
+.in-block {
+    margin: 15px 10px;
+}
+
+.in-block-title {
+    margin: 10px 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.flex-block {
+    display: flex;
+    flex-direction: column;
 }
 
 .default-img {
@@ -75,7 +82,7 @@ b {
 
 textarea {
     background: transparent;
-    height: 500px;
+    height: 430px;
     border: none;
     resize: none;
 }
