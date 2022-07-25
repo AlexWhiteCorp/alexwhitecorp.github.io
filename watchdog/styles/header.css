@@ -12,18 +12,50 @@
 
 .in-header {
     grid-area: in-header;
-    display: flex;
+    display: grid;
+    grid-template-columns: max-content max-content auto max-content;
+    grid-template-areas: "logo title . integration";
+    width: 100%;
 }
 
 .header-icon {
+    grid-area: logo;
     height: 40px;
     margin: 5px 10px;
 }
 
 .header-title {
+    grid-area: title;
+
     color: black;
     font-size: 32px;
     font-weight: bold;
     line-height: 50px;
     text-shadow: 0px 0px 2px whitesmoke;
+}
+
+.header-integration {
+    grid-area: integration;
+    margin: 5px 10px;
+}
+
+.header-integration-logos {
+    display: flex;
+    height: 35px;
+}
+
+.header-integration-logo {
+    height: 100%;
+    margin: 0 auto;
+}
+
+.header-integration-title {
+    font-size: 8px;
+    line-height: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .header-wrapper {
+        display: block;
+    }
 }
