@@ -45,11 +45,12 @@
 }
 
 .header-integration-logo {
-    height: 100%;
-    margin: 0 auto;
+    height: 90%;
+    margin: 5% 5px;
 }
 
 .header-integration-title {
+    text-align: center;
     font-size: 8px;
     line-height: 10px;
 }
