@@ -44,6 +44,8 @@
             <div class="nav-sub-item"><a href="#install-windows" class="nav-item-link">- Windows 10</a></div>
             <div class="nav-sub-item"><a href="#install-custom-build" class="nav-item-link">- Custom build</a></div>
             <div class="nav-item"><a href="#access-token" class="nav-item-link">- Generate Access Token</a></div>
+            <div class="nav-sub-item"><a href="#access-token-github" class="nav-item-link">- GitHub</a></div>
+            <div class="nav-sub-item"><a href="#access-token-gitlab" class="nav-item-link">- GitLab</a></div>
             <div class="nav-item"><a href="#feedback" class="nav-item-link">- Feedback</a></div>
         </div>
         <div class="content-wrapper">
@@ -52,8 +54,8 @@
                 <div class="block-title">About</div>
                 <div class="in-block flex-block">
                     <div>
-                        <b>WatchDog</b> - tool for <b>GitHub</b> to keep <b>repositories</b>
-                        you are interested in and their <b>pull requests</b> in <b>tray menu</b>.
+                        <b>WatchDog</b> - tool for <b>GitHub and GitLab</b> to keep <b>Repositories/Projects</b>
+                        you are interested in and their <b>Pull/Merge Requests</b> in your desktop <b>Tray Menu</b>.
                     </div>
                     <img class="default-img" style="max-width: 400px"
                          src="images/about-1.png" alt="NotFound">
@@ -61,7 +63,7 @@
                 <div class="in-block">
                     Thanks to this tool you will be able to:
                     <div class="in-block">
-                        <div>- see all <b>your PRs</b> and PRs where <b>your review is request</b> in one place</div>
+                        <div>- see all <b>your PRs</b> and PRs where <b>your review is requested</b> in one place</div>
                         <div>- open needed repository or PR just in <b>two</b> clicks</div>
                     </div>
                 </div>
@@ -71,10 +73,8 @@
                         <div>- you are working in a big team</div>
                         <div>- you are working in several teams or organizations in same time</div>
                         <div>- project code consists of many repositories</div>
-                        <div>- every day you receive a lot of PRs(some of them are long playing and it's hard to keep
-                            attention)
-                        </div>
-                        <div>- you would like to open favorite(or needed for work) repositories in two clicks</div>
+                        <div>- every day you receive a lot of PRs(some of them are long playing and it's hard to keep attention)</div>
+                        <div>- you would like to have ability to open favorite(or needed for work) repositories in two clicks</div>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="in-block-title">Repositories</div>
                 <div class="in-block flex-block">
-                    <div>By clicking on repository name your open it's GitHub page in Browser.</div>
+                    <div>By clicking on repository name your open it's GitHub/GitLab page in Browser.</div>
                 </div>
                 <div class="in-block flex-block">
                     <div>In case if there are opened Pull Requests in repository you see their number in this format:</div>
@@ -113,13 +113,13 @@
                     <div>For each PR provides next info:</div>
                     <div class="in-block">
                         <div>- PR title and author</div>
-                        <div>- number of approval requests</div>
-                        <div>- PR author's comments/PR reviewers comments</div>
-                        <div>- Time of last update</div>
+                        <div>- Number of approval requests</div>
+                        <div>- Resolved Discussions count/Total Discussions count</div>
+                        <div>- Time and Date of last update</div>
                     </div>
                 </div>
                 <div class="in-block flex-block">
-                    <div>By clicking on pull request card your open it's GitHub page in Browser.</div>
+                    <div>By clicking on pull request card your open it's GitHub/GitLab page in Browser.</div>
                 </div>
                 <div class="in-block">
                     If you have approved PR you will see '✓' near PR title
@@ -134,7 +134,7 @@
                     </div>
                 </div>
                 <div class="in-block-title">Refreshing and Icon color</div>
-                <div class="in-block">Data is re-fetched <b>every 5 minutes</b> using GitHub API to keep information up to date.</div>
+                <div class="in-block">Data is re-fetched <b>every 5 minutes</b> using GitHub/GitLab API to keep information up to date.</div>
                 <div class="in-block">
                     By default icon color is <b>black</b>.
                     But if there is at least one PR not approved(at least one approval review)
@@ -189,11 +189,15 @@
                 </div>
                 <div class="in-block flex-block">
                     <div>Fill in created config file using next schema(example):</div>
+                </div>
+                <div class="in-block flex-block">
+                    <b>GitHub Repositories</b>
                     <textarea class="code-block" readonly="true">
 {
   "organizations": [
     ...
     {
+      "type": "GitHub"
       "accessToken": "<token>",
       "organization": "AlexWhiteCorp",
       "groups": [
@@ -208,8 +212,7 @@
             "my-repo-1",
             "my-repo-2",
             "my-repo-2"
-          ],
-          "fetchPRs": false
+          ]
         },
         ...
       ]
@@ -221,11 +224,47 @@
                 <div class="in-block">
                     <b>Notice: </b>
                     <div class="in-block">
-                        <div>- repository groups are separated by delimiter on UI for more comfortability.</div>
-                        <div>- <b>fetchPRs</b> - optional, by default is true.
-                            If <b>false</b> - repositories from this group will be loaded on app launching but
-                            refreshing will be skipped for them
-                        </div>
+                        <div>- <b>organizations[*].organization</b> - GitHub Account(your or organization) username</div>
+                        <br>
+                        <div>- Splitting repositories on groups are used jsut for separating by delimiter on UI for more comfortability.</div>
+                    </div>
+                </div>
+
+                <div class="in-block flex-block">
+                    <b>GitLab Projects</b>
+                    <textarea class="code-block" readonly="true">
+{
+  "organizations": [
+    ...
+    {
+      "type": "GitLab"
+      "accessToken": "<token>",
+      "organization": "AlexWhiteCorp",
+      "groups": [
+        ...
+        {
+          "projects": [
+            "my-repo-1",
+            "my-repo-2",
+            "my-repo-2"
+          ]
+        },
+        ...
+      ]
+    }
+    ...
+  ]
+}</textarea>
+                </div>
+                <div class="in-block">
+                    <b>Notice: </b>
+                    <div class="in-block">
+                        <div>- <b>organizations[*].host</b> - Optional, host of your GitLab Server, by default <i>https://gitlab.com</i></div>
+                        <div>- <b>organizations[*].organization</b> - GitLab Account(your or organization) username or Group name</div>
+                        <div>- <b>organizations[*].groups[*].projects</b> - List of Gitlab Projects name</div>
+                        <div>- <b>organizations[*].groups[*].subGroupName</b> - Optional, GitLab Subgroup name</div>
+                        <br>
+                        <div>- Groups are separated by delimiter on UI for more comfortability.</div>
                     </div>
                 </div>
                 <div class="in-block">
@@ -352,6 +391,7 @@
             </div>
 
             <a name="access-token"></a>
+            <a name="access-token-github"></a>
             <div class="block">
                 <div class="block-title">How to generate GitHub Access Token</div>
                 <div class="in-block">
@@ -361,7 +401,7 @@
                     to generate access token. <br>
                 </div>
                 <div class="in-block flex-block">
-                    <div>Token should has next access scopes for correct work:</div>
+                    <div>Token should have next access scopes for correct work:</div>
                     <b class="in-block">- repo (all)</b>
                     <img class="default-img" style="max-width: 250px"
                          src="images/generate-token-1.png" alt="NotFound">
@@ -375,6 +415,22 @@
                     </div>
                     <img class="default-img" style="max-width: 400px"
                          src="images/generate-token-3.png" alt="NotFound">
+                </div>
+            </div>
+
+            <a name="access-token-gitlab"></a>
+            <div class="block">
+                <div class="block-title">How to generate GitLab Access Token</div>
+                <div class="in-block">
+                    Use this step-by-step
+                    <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token"
+                       target="_blank">GitLab Official Instruction</a>
+                    to generate access token.<br>
+                </div>
+                <div class="in-block flex-block">
+                    <div>Token should have next access scopes for correct work:</div>
+                    <img class="default-img" style="max-width: 450px"
+                         src="images/generate-token-4.png" alt="NotFound"/>
                 </div>
             </div>
 
